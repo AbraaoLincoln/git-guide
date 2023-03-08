@@ -7,3 +7,7 @@
   \_____|_|\__|  \_____|\__,_|_|\__,_|\___|
                                         
 ```
+
+Emojis:
+
+https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md

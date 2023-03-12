@@ -59,6 +59,12 @@ git read-tree [hash of tree object]
 git checkout-index -a
 ```
 
+💻 Remove file from staging area
+
+```
+git rm --cached filename
+```
+
 ## Config commands
 
 💻 To set name and email globally

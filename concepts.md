@@ -91,6 +91,20 @@ The file can live in three diferents places in git
 - staging area(index)
 - git repository
 
+## Tracking status
+
+Every file in git may have one of four tracking status
+
+- Untracked
+- Unmodified
+- Modified
+- Staged
+
+if a file has been created its status is untracked, when with state of modified, staged or unmodified is been track by git.
+
+git add file -> stated
+git commit -> unmodified
+any change in the file -> modified
 
 notes:
 

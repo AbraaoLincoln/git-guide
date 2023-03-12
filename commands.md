@@ -14,6 +14,8 @@
 git init
 ```
 
+## Low level commands
+
 :computer: Create a new Blod object in git structure
 
 ```
@@ -39,3 +41,44 @@ git cat-file -s hash
 git cat-file -t hash 
 ```
 
+:computer: List the files in the staging area
+
+```
+git ls-files -s
+```
+
+:computer: Put files from git repository on staging area
+
+```
+git read-tree [hash of tree object]
+```
+
+:computer: Put files from staging area on working directory
+
+```
+git checkout-index -a
+```
+
+## Config commands
+
+:computer: To set name and email globally
+
+```
+git config --global user.name name
+
+git config --global user.email email
+```
+
+:computer: To see configs
+
+```
+git config --list
+```
+
+## Daily commands
+
+:computer: Show the status of git repository
+
+```
+git status
+```

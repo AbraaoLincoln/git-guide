@@ -83,35 +83,85 @@ The content are:
 - pointer to a tree object
 - parent(optional)
 
-## Areas
+# Areas
 
 The file can live in three diferents places in git
 
-- working directory
-- staging area(index)
-- git repository
+- **working directory**
+   
+   files when in this area can have the following states
+
+   - Untracked
+   - Modified
+   - Unmodified
+
+- **staging area(index)**
+
+   files when in this area can have the following states
+
+   - Staged
+   - Unmodified
+
+- **git repository**
+
+   files when in this area can have the following states
+
+   - Unmodified
 
 ## Tracking status
 
-Every file in git may have one of four tracking status
+Every file in git may have one of tracking state
 
-- Untracked
+- Untracked -> new files that do not exists on git repository
 - Unmodified
 - Modified
 - Staged
+- deleted is like modified
 
 if a file has been created its status is untracked, when with state of modified, staged or unmodified is been track by git.
 
-git add file -> stated
-git commit -> unmodified
-any change in the file -> modified
+> git add file -> stated
 
-notes:
+> git commit -> unmodified
 
-- **hash is generated based on the contents of the file**
-- **hash function are one way functions, is not possible to generate the input from the hash**
-- **hash, same input always produces the same result**
-- **git generates SHA1 hash based on: [content of the file] + [object type] + [object size]**
-- **git store file in compressed binary format**
-- **filenames for the blobs are stored in tree**
-- **checkout means taking file from git repository and putting them on working directory(commit pov)**
+> any change in the file -> modified
+
+# Branchs
+
+Branch is a text reference to a specific commit (a pointer to a commit). 
+
+- default branch is master
+
+   the command below can be used to set the name for the default branch
+
+   ```
+   git config --global init.defaultBranch name
+   ```
+
+- pointers for all branchs are located in .git/refs/heads folder
+
+   - the content of files located in .git/refs/heads are the hash of the commit that the branch pointers to.
+
+   - the hash is from the last commit of branch
+
+- current branch track new commits
+
+- branch pointer move automatically after every new commit
+
+- current branch can be only one
+
+## Head
+
+Head is a pointer to a specific commit, git uses it to know wich branch is the current one.
+
+- can only be one head
+
+- Head is locally significant(only matter on local git repo)
+
+- The pointer is located in the .git/HEAD file
+
+   the content are: ref: refs/heads/branchName
+
+- to change reference to a specific branch: git checkout branch-name
+
+- to change reference to a specific commit: git checkout commit-hash

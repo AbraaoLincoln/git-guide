@@ -110,5 +110,5 @@ git log
 💻 Checkout commit or branch
 
 ```
-git checkout 
+git checkout commit | branch
 ```

@@ -70,15 +70,31 @@ git rm --cached filename
 💻 To set name and email globally
 
 ```
-git config --global user.name name
+git config --global user.name "name"
 
-git config --global user.email email
+git config --global user.email "email"
+```
+
+💻 To set name and email only to git repository which are being used
+
+```
+git config user.name "name"
+
+git config user.email "email"
 ```
 
 💻 To see configs
 
 ```
 git config --list
+```
+
+💻 To unpack objects
+
+```
+git unpack-objects
+
+cat pack-123 | git unpack-objects
 ```
 
 ## Daily commands
@@ -92,13 +108,18 @@ git status
 💻 Add files to staging area
 
 ```
-git add
+git add file1 file2
+
+git add .
 ```
 
 💻 Write changes to git repository
 
 ```
-git commit
+git commit -m "commit message"
+
+# -a add files to stage area
+git commit -m "commit message" -a
 ```
 
 💻 Show history of commits
@@ -111,4 +132,67 @@ git log
 
 ```
 git checkout commit | branch
+```
+
+💻 Clone a git repo
+
+```
+git clone location
+```
+
+💻 Show difference between version
+
+```
+# difference between working directtory and git repo
+git diff
+
+# difference between branches
+git diff branch1 branch2
+
+# difference between specific commits
+git diff hash-commit-1 hash-commit-2
+```
+
+### Branch Managemnt
+
+💻 List all local branches
+
+```
+git branch
+```
+
+💻 Create a new Branch
+
+```
+git branch name
+```
+
+💻 Checkout to specific Branch
+
+```
+git checkout name
+```
+
+💻 Delete a specific Branch
+
+```
+git branch -d name
+```
+
+💻 Rename specific Branch
+
+```
+git branch -m old-name new-name
+```
+
+💻 Rename the current Branch
+
+```
+git branch -m new-name
+```
+
+💻 Create and checkout to the specific Branch
+
+```
+git checkout -b name
 ```

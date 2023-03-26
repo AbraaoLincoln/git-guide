@@ -162,6 +162,12 @@ Head is a pointer to a specific commit, git uses it to know wich branch is the c
 
    the content are: ref: refs/heads/branchName
 
+   if in detached mode: hash of commit
+
 - to change reference to a specific branch: git checkout branch-name
 
 - to change reference to a specific commit: git checkout commit-hash
+
+### Detached HEAD
+
+This state means that the HEAD is not point to a branch, but direct to a specific commit

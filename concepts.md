@@ -171,3 +171,122 @@ Head is a pointer to a specific commit, git uses it to know wich branch is the c
 ### Detached HEAD
 
 This state means that the HEAD is not point to a branch, but direct to a specific commit
+
+# Merge
+
+From dictionary
+
+- combine or cause to combine to form a single entity
+
+- to combine or join together
+
+Merge is the feature of combine two branches into one. This is needed in the case where we need to incorporate the changes made in one branch into an other branch.
+
+There two ways to merge branch.
+
+- fast forward merge
+
+- 3 way merge
+
+## Receiving branch
+
+branch that receive change made in other branch
+
+## Feature brach
+
+this name is used in this file to name the branch that is being merge with the receiving branch
+
+## Fast forward merge
+
+```
+Main branch
+------------------------------- >
+first_commit <--- second_commit
+                        |
+                        |   feature branch
+                        |   ----------------------------- >
+                        | - feature_commit_1 <--- feature_commit_2
+```
+
+Fast forward merge is possible when there are no further commits in the receiving branch after the commit where feature branch was created
+
+If possible to do the fast forward merge git will move the pointer of master branch to last commit in the feature branch.
+
+## 3-way Merge
+
+```
+Main branch
+------------------------------- >
+first_commit <--- second_commit <--- third_commit
+                        |
+                        |   feature branch
+                        |   ----------------------------- >
+                        | - feature_commit_1 <--- feature_commit_2
+```
+
+3-way merge is apply by git when the receiving branch has commits after the base commit of feature branch
+
+git will create a new commit that have two parents commits, one parent is the last commit in the receiving branch e the another is the last commit in the feature branch.
+
+```
+Main branch                                                          commit created in the 3-way merge
+------------------------------- >                                    ---------------------------------
+first_commit <--- second_commit <--- third_commit <----------------- merge_commit
+                        |                                                  |
+                        |      feature branch                              |
+                        |      ----------------------------- >             |
+                        | <--- feature_commit_1 <--- feature_commit_2 <----|
+```
+### Nearest Common Commit Ancestor
+
+the second_commit is the nearest common commit ancestor
+
+### Merge commit
+
+git tries to make a commit with all the change of the feature branch, this commit is the merge commit.
+
+- 3-way merge
+
+if in the process of doing the 3-way merge, the same file was change in the receiving branch and feature branch, then git will ask to resolve the merge conflic
+
+### Recursive startegy
+
+git look for comun ancetor commit and create the merge commit
+
+### The Process to merge two branch
+
+```
+git checkout <receiving_branch>
+
+git merge <feature_branch>
+```
+
+## Merge Conflict
+
+Merge conflict can happen when change the same file in differents branches.
+
+- merge conflict only happens when there is new commits in the base branch(branch witch the current is based of)
+
+- merge conflict doesn't happen in fast forward merge.
+
+- merge conflict can appear in the 3-way merge
+
+## Staging area
+
+```
+git ls-files -s
+                                                v
+100644 83db48f84ec878fbfb30b46d16630e944e34f205 1	file1.txt
+100644 49a657e0b894f67e271e9a65768c189e64626202 2	file1.txt
+100644 b4681d1f56157994ebb8eb6308d3f73eda58d580 3	file1.txt
+```
+
+| version | description |
+|---------|-------------|
+| 1 | version of the file in the nearest common ancestor commit, the initial version of both branches |
+| 2 | version of the file in the receiving branch |
+| 3 | version of the file in the feature branch |
+
+## .git/MERGE_HEAD
+
+pointer to the last commit in the feature branch

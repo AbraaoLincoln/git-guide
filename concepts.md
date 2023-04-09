@@ -290,3 +290,45 @@ git ls-files -s
 ## .git/MERGE_HEAD
 
 pointer to the last commit in the feature branch
+
+# Remote git repository
+
+## Clone
+
+the _git clone_ command is used to clone a remote git repo, git will create a folder with the same name as remote repo and it's content is the same as the remote repo.
+
+- to update the local repo with the new things from remote repo is necessary do this manually. (pull/fetch)
+
+- to update the remote repo with the new things from local repo is necessary do this manually. (push)
+
+## Push
+
+to push the changes of local git repository to remote git repository
+
+```
+git push origin
+git push origin <branch name>
+```
+
+## Fetch
+
+to update local git repository with changes of remote git respoitory
+
+```
+git fetch origin
+git fetch origin <brach name>
+```
+
+## Pull
+
+to update local git repository with changes of remote git respository **and** merge any changes into the working directory, git will merge the local receiving branch with the remote branch.
+
+- git does a fetch and merge.
+
+```
+git pull origin <branch name>
+```
+
+## Origin
+
+When cloning a remote repo git will create a binding for it, the default binding is called _origin_.

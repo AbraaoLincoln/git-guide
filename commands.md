@@ -191,8 +191,34 @@ git branch -m old-name new-name
 git branch -m new-name
 ```
 
+💻 List all the branches from local and remote git repository
+
+```
+git branch -a
+```
+
+💻 List all the branches from remote git repository
+
+```
+git branch -r
+```
+
 💻 Create and checkout to the specific Branch
 
 ```
 git checkout -b name
+```
+
+💻 Clone a git repository from a host
+
+```
+git clone <remote repo address>
+```
+
+💻 List all remote servers for the git repository
+
+```
+git remote
+
+git remote -v
 ```

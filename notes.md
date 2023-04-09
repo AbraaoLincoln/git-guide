@@ -12,3 +12,4 @@
 - **when creating a new branch is the same as creating a new reference to a commit**
 - **when use checkout git only move the HEAD to the specific commit, it change the contents on HEAD file** 
 - **on a clone repo the objects a pack in a package inside .git/objects/pack**
+- **By default after cloning Git will not create corresponding local branches for all remote branches except default remote branch**
